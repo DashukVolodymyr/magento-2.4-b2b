@@ -1,0 +1,20 @@
+<div class="actions dropdown dropdown-example">
+    <button
+        data-mage-init='{"dropdown":{}}'
+        data-toggle="dropdown"
+        class="action toggle">
+            <span><?= $block->escapeHtml(__('Dropdown open button')) ?></span>
+    </button>
+    <ul data-target="dropdown" class="dropdowncd">
+        <li>
+            <span class="item"><?= $block->escapeHtml(__('Item 1')) ?></span>
+        </li>
+        <li>
+            <span class="item"><a href="#"><?= $block->escapeHtml(__('Item 2 with link')) ?></a></span>
+        </li>
+        <li>
+            <span class="item"><?= $block->escapeHtml(__('Item 3')) ?></span>
+        </li>
+    </ul>
+</div>
+
