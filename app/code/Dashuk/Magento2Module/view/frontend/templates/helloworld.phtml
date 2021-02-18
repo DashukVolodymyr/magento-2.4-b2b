@@ -1,20 +1,34 @@
-<div class="actions dropdown dropdown-example">
-    <button
-        data-mage-init='{"dropdown":{}}'
-        data-toggle="dropdown"
-        class="action toggle">
-            <span><?= $block->escapeHtml(__('Dropdown open button')) ?></span>
+<div class="dropdown-wrap">
+    <button class="dropdown-button">
+        <span><?= $block->escapeHtml(__('Dropdown open button')) ?></span>
     </button>
-    <ul data-target="dropdown" class="dropdowncd">
-        <li>
-            <span class="item"><?= $block->escapeHtml(__('Item 1')) ?></span>
-        </li>
-        <li>
-            <span class="item"><a href="#"><?= $block->escapeHtml(__('Item 2 with link')) ?></a></span>
-        </li>
-        <li>
-            <span class="item"><?= $block->escapeHtml(__('Item 3')) ?></span>
-        </li>
-    </ul>
+    <div id="dropdown-dialog" data-role="dropdownDialog">
+        <?= $block->escapeHtml(__('Dropdown content')) ?>
+    </div>
 </div>
 
+<script type="text/javascript">
+    require([
+            'jquery',
+            'dropdownDialog'
+        ], function($, dropdownDialog) {
+            'use strict';
+
+            $('#dropdown-dialog').dropdownDialog({
+                appendTo: '.dropdown-wrap',
+                triggerTarget: '.dropdown-button',
+                closeOnMouseLeave: false,
+                closeOnEscape: true,
+                timeout: 2000,
+                triggerClass: 'active',
+                parentClass: 'active',
+                buttons: [{
+                    text: $.mage.__('Close'),
+                    click: function () {
+                        $(this).dropdownDialog("close");
+                    }
+                }]
+            });
+        }
+    );
+</script>
